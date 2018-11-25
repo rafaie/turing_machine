@@ -114,18 +114,19 @@ class Turing:
         it_counter = 0
         it_status = UNKNOWN
 
-        while (it_status is not ACCEPT) and it_counter <= self.max_transitions:
+        while it_status is not ACCEPT and it_status is not REJECT and \
+                it_counter <= self.max_transitions:
+
             if self.verbose is True:
                 print('------------------------')
                 print("it_counter:", it_counter)
             it_status = UNKNOWN
             it_repo.append([])
             for it in it_repo[it_counter]:
-                if self.verbose is True:
-                    print('------------------------')
-                    self.show_iteration(it, 'Start State')
-
                 if it[3] == UNKNOWN:
+                    if self.verbose is True:
+                        print('------------------------')
+                        self.show_iteration(it, 'Start State')
                     state = it[0]
                     s = it[1]
                     i = it[2]
@@ -135,7 +136,7 @@ class Turing:
                         c = s[i]
 
                     for tr in state.transitions:
-                        if tr.symbol1 == '_' or tr.symbol1 == c:
+                        if tr.symbol1 == c:
                             str_new = s
                             if tr.symbol2 != '_':
                                 if i < 0:
@@ -164,12 +165,18 @@ class Turing:
                                                     '\t')
 
             it_counter += 1
-            it_status = max([it[-1] for it in it_repo[it_counter]])
+            if len(it_repo[it_counter]) == 0:
+                it_status = REJECT
+                print('reject!!')
+            else:
+                it_status = max([it[-1] for it in it_repo[it_counter]])
 
         if it_status == ACCEPT:
             print('M stops and accepts w')
-        else:
+        elif it_status == REJECT:
             print('M stops and reject w')
+        else:
+            print('M is still running')
 
 
 # example
