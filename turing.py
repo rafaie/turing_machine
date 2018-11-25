@@ -136,29 +136,25 @@ class Turing:
 
                     for tr in state.transitions:
                         if tr.symbol1 == '_' or tr.symbol1 == c:
-                            # print('++++++++++++++++++')
-                            # tr.show()
                             str_new = s
                             if tr.symbol2 != '_':
                                 if i < 0:
                                     # recheck the case
                                     pass
                                 elif i >= len(str_new):
-                                    # print("i >= len(str_new)", i, len(str_new))
                                     str_new += '_' * (i-len(str_new)) \
                                         + tr.symbol2
                                 else:
-                                    # print("else", i, len(str_new))
                                     str_new = str_new[:i] + tr.symbol2 + \
                                         str_new[i+1:]
-
-                            # print("str_new", str_new)
+                            elif i >= len(str_new):
+                                str_new += '_' * (i-len(str_new)) \
+                                    + tr.symbol2
 
                             if tr.move == 'R':
                                 i_new = i + 1
                             elif tr.move == 'L':
                                 i_new = 1 - 1
-                            # print(tr.move, i, i_new)
 
                             it_repo[it_counter+1].append([tr.state2, str_new,
                                                           i_new,
@@ -185,13 +181,19 @@ if __name__ == "__main__":
     parser.add_argument("-mt", "--max_transitions",
                         help="define the max_transitions",
                         type=int)
+    parser.add_argument("-f", "--file",
+                        help="define a file path includes init_string",
+                        action='store_true')
     parser.add_argument("-v", "--verbose", help="Show more details",
                         action='store_true')
-    parser.add_argument("machine", help="define machine string")
+    parser.add_argument("init_string", help="define init_string string")
 
     args = parser.parse_args()
     max_transitions = args.max_transitions if args.max_transitions else \
         MAX_TRANSITION
-
-    t = Turing(args.machine, max_transitions, args.verbose)
+    init_string = args.init_string
+    if args.file is True:
+        with open(args.init_string, "r") as fi:
+            init_string = fi.readlines()[0].strip()
+    t = Turing(init_string, max_transitions, args.verbose)
     t.run()
