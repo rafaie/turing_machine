@@ -1,0 +1,42 @@
+---------------------------------------------------
+python3 turing.py -f testcase1.txt
+#q0,a->qa,a,R#q0,a->q1,a,R#q0,b->q1,b,R#q0,_->q1,_,R#q1,b->q1,b,R#q1,_->q1,_,R#q1,a->qr,a,R#q1,b->qr,b,R#
+ab
+8
+4
+M stops and accepts w
+---------------------------------------------------
+python3 turing.py -f testcase2.txt
+#q0,a->qa,a,R#q0,a->q1,a,R#q0,b->q1,b,R#q0,_->q1,_,R#q1,b->q1,b,R#q1,_->q1,_,R#q1,a->qr,a,R#q1,b->qr,b,R#
+bba
+8
+4
+M stops and reject w
+---------------------------------------------------
+python3 turing.py -f testcase3.txt
+#q0,a->qa,a,R#q0,a->q1,a,R#q0,b->q1,b,R#q0,_->q1,_,R#q1,b->q1,b,R#q1,_->q1,_,R#q1,a->qr,a,R#q1,b->qr,b,R#
+bb
+8
+4
+M stops and reject w
+---------------------------------------------------
+python3 turing.py -f testcase4.txt
+#q0,_->qr,_,R#q0,a->qr,a,R#q0,a->q1,a,R#q0,b->q1,b,R#q1,a->q2,a,R#q1,b->q2,b,R#q2,b->q2,b,R#q2,_->q2,_,R#q1,a->qa,a,R#
+aabb
+9
+5
+M stops and accepts w
+---------------------------------------------------
+python3 turing.py -f testcase5.txt
+#q0,_->qr,_,R#q0,a->qr,a,R#q0,a->q1,a,R#q0,b->q1,b,R#q1,a->q2,a,R#q1,b->q2,b,R#q2,b->q2,b,R#q2,_->q2,_,R#q1,a->qa,a,R#
+abba
+9
+5
+M stops and reject w
+---------------------------------------------------
+python3 turing.py -f testcase6.txt
+#q0,_->qr,_,R#q0,a->qr,a,R#q0,a->q1,a,R#q0,b->q1,b,R#q1,a->q2,a,R#q1,b->q2,b,R#q2,b->q2,b,R#q2,_->q2,_,R#q1,a->qa,a,R#
+abbb
+9
+5
+M stops and reject w
