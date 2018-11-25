@@ -1,0 +1,1 @@
+#q0,_->qr,_,R#q0,a->qr,a,R#q0,a->q1,a,R#q0,b->q1,b,R#q1,a->q2,a,R#q1,b->q2,b,R#q2,b->q2,b,R#q2,_->q2,_,R#q1,a->qa,a,R##abba#
