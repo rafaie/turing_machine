@@ -18,7 +18,7 @@ python3 turing.py -f testcase3.txt
 bb
 8
 4
-M stops and reject w
+M is still running
 ---------------------------------------------------
 python3 turing.py -f testcase4.txt
 #q0,_->qr,_,R#q0,a->qr,a,R#q0,a->q1,a,R#q0,b->q1,b,R#q1,a->q2,a,R#q1,b->q2,b,R#q2,b->q2,b,R#q2,_->q2,_,R#q1,a->qa,a,R#
@@ -32,6 +32,7 @@ python3 turing.py -f testcase5.txt
 abba
 9
 5
+reject!!
 M stops and reject w
 ---------------------------------------------------
 python3 turing.py -f testcase6.txt
@@ -39,4 +40,4 @@ python3 turing.py -f testcase6.txt
 abbb
 9
 5
-M stops and reject w
+M is still running
