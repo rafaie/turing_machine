@@ -32,7 +32,6 @@ python3 turing.py -f testcase5.txt
 abba
 9
 5
-reject!!
 M stops and reject w
 ---------------------------------------------------
 python3 turing.py -f testcase6.txt
