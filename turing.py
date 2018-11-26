@@ -91,7 +91,9 @@ class Turing:
 
     def show(self, str=None):
         print(self.machine_str)
-        print(str if str is not None else self.str)
+        str_new = str if str is not None else self.str
+        str_new = 'e' if len(str.strip()) <= 0 else str_new
+        print(str_new)
         print(sum([len(self.states[id].transitions) for id in self.states]))
         print(len(self.states))
 
