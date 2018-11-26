@@ -167,7 +167,6 @@ class Turing:
             it_counter += 1
             if len(it_repo[it_counter]) == 0:
                 it_status = REJECT
-                print('reject!!')
             else:
                 it_status = max([it[-1] for it in it_repo[it_counter]])
 
